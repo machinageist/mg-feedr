@@ -71,6 +71,8 @@ enum Command {
     },
     /// Open a headline: articles in the browser, videos in mpv
     Open { id: i64 },
+    /// The ticker in the terminal
+    Tui,
 }
 
 fn main() -> Result<()> {
@@ -139,6 +141,7 @@ fn main() -> Result<()> {
             }
             Ok(())
         }
+        Command::Tui => mg_feedr::tui::run(socket_path()?),
         Command::Open { id } => {
             let item = find(&catalog()?, id)?;
             let target = open::open(&item)?;

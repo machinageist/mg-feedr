@@ -8,4 +8,5 @@ pub mod client;
 pub mod daemon;
 pub mod open;
 pub mod socket;
+pub mod tui;
 pub mod wire;
