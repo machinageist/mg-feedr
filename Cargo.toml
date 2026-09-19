@@ -2,5 +2,24 @@
 name = "mg-feedr"
 version = "0.1.0"
 edition = "2024"
+license = "MIT"
+description = "Live headline ticker for the Geist suite, over mg-brief's catalog"
 
 [dependencies]
+anyhow = "1"
+chrono = "0.4"
+clap = { version = "4.5", features = ["derive"] }
+# the catalog and the guarded fetch; linked, not copied (Jeff, 2026-09-18)
+mg-brief = { path = "../mg-briefr" }
+ratatui = "0.29"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+[dev-dependencies]
+# the same version mg-brief links; tests backdate a source's last fetch directly
+rusqlite = "0.32"
+tempfile = "3"
+url = "2"
+
+[lints.rust]
+unsafe_code = "deny"
